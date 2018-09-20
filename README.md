@@ -1,2 +1,2 @@
-# IV_Proyecto
-Repositorio donde ira alojado el proyecto de IV. Dicho proyecto será en el fornt-end un bot de Telegram y en el back-end estará implementado un microservicio.
+# LibSePeBOT
+Este es el repositorio del proyecto de IV. Dicho proyecto será en el fornt-end un bot de Telegram para poder realizar una gestión de diferentes películas y series vistas y por ver, así como los libros leídos y por leer. En el back-end estará implementado un microservicio, donde este sera el encargado de dicha gestión, así como traer la información de las bases de datos o de diferentes paginas de opiniones.
