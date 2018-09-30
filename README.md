@@ -14,10 +14,10 @@ La parte visual o front-end, será un bot de Telegram en el cual se podrá inter
 - El lenguaje para desarrollar esta aplicación será Python.
 - El framework [CherryPy](https://cherrypy.org/)
 - La API [pyTelegramBotAPI](https://github.com/eternnoir/pyTelegramBotAPI).
-- Como base de datos usaré una NoSQL y será MongoDB.
+- Como base de datos usaré una NoSQL y será [MongoDB](https://www.mongodb.com/es).
 - Para pruebas en local usaré una máquina virtual.
 - Para los test usaré el módulo __unittest__
-- Para la integración continua usaré Travis CI.
+- Para la integración continua usaré [Travis CI](https://travis-ci.org/).
 
 Las razones que me han llevado a elegir Python es que es un lenguaje que estoy aprendiendo y me gustaría desarrollar algo más "importante". Con respecto a la API, es una que ya he usado anteriormente y no he tenido ningún problema, por lo que quiero seguir utilizándola. Por último he elegido CherryPy como framework porque que es estable, está creciendo, tiene 10 años y actualmente tiene mucha actividad. Al ser orientado objetos, permite hacer un código más limpio y un desarrollo más rápido. A parte tiene buen rendimiento y permite trabajar en la versión 2 y 3 de Python.
 
