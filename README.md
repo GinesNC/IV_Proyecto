@@ -16,9 +16,10 @@ La parte visual o front-end, será un bot de Telegram en el cual se podrá inter
 - La API [pyTelegramBotAPI](https://github.com/eternnoir/pyTelegramBotAPI).
 - Como base de datos usaré una NoSQL y será MongoDB.
 - Para pruebas en local usaré una máquina virtual.
-- Para los test usare el módulo __unittest__
+- Para los test usaré el módulo __unittest__
+- Parala integración continua usaré Travis CI.
 
-Las razones que me han llevado a elegir Python es que es un lenguaje que estoy aprendiendo y quiero hacer algo más grande, ya que es un lenguaje que esta creciendo. Con respecto a la API, es una que ya he usado anteriormente y no he tenido ningún problema, por lo que quiero seguir utilizándola. Por último he elegido CherryPy como framework porque que es estable, está creciendo, tiene 10 años y actualmente tiene mucha actividad. Al ser orientado objetos, permite hacer un código más limpio y un desarrollo mas rápido. A parte tiene buen rendimiento y permite trabajar en la versión 2 y 3 de Python.
+Las razones que me han llevado a elegir Python es que es un lenguaje que estoy aprendiendo y quiero hacer algo más grande, ya que está creciendo. Con respecto a la API, es una que ya he usado anteriormente y no he tenido ningún problema, por lo que quiero seguir utilizándola. Por último he elegido CherryPy como framework porque que es estable, está creciendo, tiene 10 años y actualmente tiene mucha actividad. Al ser orientado objetos, permite hacer un código más limpio y un desarrollo mas rápido. A parte tiene buen rendimiento y permite trabajar en la versión 2 y 3 de Python.
 
 La base de datos que he elegido es una NoSQL, y en este caso MongoDB, es un sistema que ya he usado, por lo que me resulta más familiar. Aparte de esto he decidido poner los datos en una base de datos no relacional porque solo se va a almacenar información plana y variables del estilo:
 
