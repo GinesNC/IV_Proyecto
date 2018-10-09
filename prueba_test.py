@@ -4,6 +4,16 @@ import random
 
 
 def conectarColeccion(pruebas):
+    """Con esto se establece la conexion con MongoDB y devuelve la coleccion
+    correspondiente si es test o no.
+
+    Devuelve la coleccion libsepe_dat si no es una prueba, en caso contrario la
+    coleccion para hacer test.
+
+    Parámetros:
+    pruebas -- Puede ser True o False. Se utiliza para elegir la coleccion.
+
+    """
     try:
         conn=pymongo.MongoClient('localhost', 27017)
         print("Conexion OK!!!")
@@ -122,7 +132,7 @@ class Test(unittest.TestCase):
 
     def test_D_UserActividad(self):
         #igual que antes pero se busca un uid.
-        self.assertGreaterEqual(userActividad(c, uid),1, "Comprobacion de actividad correcta")
+        self.assertGreaterEqual(userActividad(c, uid),1, "No tiene actividad")
 
 
     def test_E_Borrar(self):
@@ -130,7 +140,7 @@ class Test(unittest.TestCase):
 
         titulo_borrar = "mod test prueba"
 
-        self.assertTrue(eliminarDatos(c, titulo_borrar, uid), "Borrado correcto")
+        self.assertTrue(eliminarDatos(c, titulo_borrar, uid), "Borrado incorrecto")
 
 
     #liberar datos base de datos
