@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/GinesNC/LibSePeBOT-IV.svg?branch=master)](https://travis-ci.org/GinesNC/LibSePeBOT-IV)
 # LibSePeBOT
 ## Introducción
 
