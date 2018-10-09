@@ -1,96 +1,140 @@
 import unittest
 import pymongo
+import random
 
-def conectarDB():
+
+def conectarColeccion(pruebas):
     try:
         conn=pymongo.MongoClient('localhost', 27017)
-        print("Connected successfully!!!")
+        print("Conexion OK!!!")
     except(pymongo.errors.ConnectionFailure, e):
-        print("Could not connect to MongoDB: %s") % e
-    return conn['lsp_db']
+        print("No se puede conectar MongoDB: %s") % e
 
-def insert_data(type, data, uid):
-    #insertar en base de datos #si x es una instancia de insertoneresult es que si se ha insertado.
+    db = conn['lsp_db']
+    if pruebas:
+        return db['test_pruebas']
+    else :
+        return db['libsepe_dat']
 
+def insertarDatos(coleccion, datos):
+    """Funcion para insertar datos en la colleccion donde va almacenado todo.
 
+    Devuelve True si se ha insertado correctamente y se crea una instancia de
+    InsertOneResult, en caso contrario False.
+
+    Parámetros:
+    coleccion -- es la coleccion que donde se hace la inserccion
+    datos -- es un diccionario que se utilizará para insertar los datos en la
+        colleccion. Tiene una estructura donde va el tipo de contenido que es
+        (pelicula, libro o serie), el titulo, el año, una puntuacion propia y
+        el usuario del que es dicho dato. Esto se alamcena en la base de datos:
+        - lsp_db y en la colleccion libsepe_dat.
+
+    """
+    x = coleccion.insert_one(datos)
 
     return isinstance(x, pymongo.results.InsertOneResult)
 
 
-def modify_data(title, new_data, uid):
-    # se modifica y se busca por titulo (lo ideal seria añadir un id unico)
-    # igual que antes pero con la clase updateresult
-def delete_data(id):
-    #cuando en el bot se elige eliminar devuelve la peli que es buscada por tituloself.
-    #cuando la encuentra la mustra y pide la confirmacion del ususario. Si le da a si
-    #se llama a esta funcion y se le pasa el identificador unico. el id no se muestra.
-    # tb devuelve una instancia de deleteresult
+def modificarDatos(coleccion, titulo, new_datos, uid):
+    """Funcion para modificar datos de la colleccion donde va almacenado todo.
 
-def user_activity(uid):
-    # esto devuelve si el usuario tiene alguna actividad. si es asi devuelve el numero
-    # de libros pelis y series que tieneself.
+    Devuelve True si se ha modificado correctamente y se crea una instancia de
+    UpdateResult, en caso contrario False.
 
-def nota(titulo):
-    #ayudanmoe de enlace_nota.py
+    Parámetros:
+    coleccion -- es la coleccion que donde se hace la modificacion
+    titulo -- Es el titulo exacto, igual que esta en la colleccion, del dato que
+        se quiere modifcar. Se puede modificar el titulo también si así se quisiera.
+    new_datos -- es un diccionario donde estan los nuevos datos.
+    uid -- Es el indicador del usuario, para poder modificar un valor debe
+        coincidir el titulo y el uid. Este valor es el unico que no se puede modificar.
+
+    """
+    query = {'titulo' : titulo, 'uid' : uid}
+    x = coleccion.update_one(query, {'$set' :new_datos})
+
+    return isinstance(x, pymongo.results.UpdateResult)
+
+def eliminarDatos(coleccion, titulo, uid):
+    """Funcion para eliminar datos de la colleccion donde va almacenado todo.
+
+    Devuelve True si se ha eliminado correctamente y se crea una instancia de
+    DeleteResult, en caso contrario False.
+
+    Parámetros:
+    coleccion -- es la coleccion que donde se hace la eliminacion
+    titulo -- Es el titulo exacto, igual que esta en la colleccion, del dato que
+        se quiere eliminar.
+    uid -- Es el indicador del usuario, para poder eliminar un valor debe
+        coincidir el titulo y el uid.
+
+
+    """
+    query = {'titulo' : titulo, 'uid' : uid}
+    x = coleccion.delete_one(query)
+
+    return isinstance(x, pymongo.results.DeleteResult)
+
+def userActividad(coleccion, uid):
+    """Funcion para ver si un usuario tiene actividad.
+
+    Devuelve el numero de titulos que tiene registrados.
+
+    Parámetros:
+    coleccion -- es la coleccion que donde se hace la busqueda.
+    uid -- Es el indentificador del usuario, para ver la actividad que tiene.
+
+
+    """
+
+    return coleccion.count_documents({'uid': uid})
+
+
 
 
 class Test(unittest.TestCase):
-
-    def testConectar(self):
-        self.assertEqual(conectarDB(), "Connected successfully!!!", "Conexion DB OK")
-
-    #se crea un uid al azar, se conecta a la base de datos y se crea una colleccion de prueba
-    # para comprobar que se realizan las acciones de la base de datos correctamente.
-    uid = round
-    db = conectarDB()
-    columna = db['test_pruebas']
-
-    def testInsert(self):
-        type = round{peli,libro,series}
-        data = {aaaaaaa, 1234, 9}
+    global uid
+    global tipo
+    global c
+    uid = random.randint(10000, 100000)
+    tipo = random.choice(["libro", "pelicula", "serie"])
+    c = conectarColeccion(True)
 
 
-        x = columna.insert_one(data)
+    def test_A_Conectar(self):
+        self.assertTrue(c ,  "Conexion DB falla")
 
 
-        #si es igual el print a los datos insertados pasa el test.
-        self.assertTrue(insert_data(type, data, uid), "Inserccion correcta")
+    def test_B_Insertar(self):
+
+        data = {'titulo': 'test prueba','año' : 2018, 'puntuacion': 10, 'tipo' : tipo, 'uid': uid}
+
+        self.assertTrue(insertarDatos(c, data), "Inserccion incorrecta")
 
 
-    def testModyfy(self):
-        #igual que antes pero para modificar
-        type = round{peli,libro,series}
-        title = "aaaaaaaaaaaa"
-        data_nuew
+    def test_C_Modificar(self):
+        tipo1 = random.choice(["libro", "pelicula", "serie"])
+        titulo = "test prueba"
+        new_datos = {'titulo': 'mod test prueba', 'año': 2017, 'puntuacion': 8, 'tipo':tipo1}
+
+        self.assertTrue(modificarDatos(c, titulo, new_datos, uid), "Modificacion incorrecta")
+
+    def test_D_UserActividad(self):
+        #igual que antes pero se busca un uid.
+        self.assertGreaterEqual(userActividad(c, uid),1, "Comprobacion de actividad correcta")
 
 
-        x = columna.(data)
-
-
-        #si es igual el print a los datos insertados pasa el test.
-        self.assertTrue(modify_data(title, data_new, uid), "Modificacion correcta")
-
-    def testDelete(self):
+    def test_E_Borrar(self):
         #igual pero para borrar dato
 
-        data_borrar = #por ejemplo un id o el titulo para buscar.
+        titulo_borrar = "mod test prueba"
 
-        self.assertTrue(delete_data(id), "Borrado correcto")
-
-
-    def testActivity(self):
-        #igual que antes pero se busca un uid.
-
-        self.assertTrue(user_activity(uid), "Comprobacion de actividad correcta")
-
-
-    def testObtenerNota(self):
-        # Para que este entre 0 y 10, se cumple el test
-        self.assertTrue(nota(title), "obtencion correcta")
-
+        self.assertTrue(eliminarDatos(c, titulo_borrar, uid), "Borrado correcto")
 
 
     #liberar datos base de datos
+    c.remove({})
 
 if __name__ == '__main__':
     unittest.main()
