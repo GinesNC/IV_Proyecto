@@ -28,3 +28,10 @@ La base de datos que he elegido es NoSQL, y en este caso MongoDB, es un sistema 
         titulo: "titulo", año: "XXXX", mi_puntuacion: [0..10], usuario: <uid del bot> ...
 
 Por lo que de este modo me ahorro espacio en disco.
+___________________________________
+
+## Integración continua y test
+
+En este caso la clase que se va a testear es a la que yo he llamado [_libsepe_](https://github.com/GinesNC/LibSePeBOT-IV/blob/master/libsepe.py). Actualmente hay unas funciones de prueba para llevar a cabo el hito 2, pero en el futuro irán las funciones principales. el encargado de testear dichas funciones es la clase [_Test_](https://github.com/GinesNC/LibSePeBOT-IV/blob/master/test.py), los cuales testean varias funciones de prueba, como que se inserta correctamente un dato, se modifica o se borra. Estos test avanzarán a lo largo del proyecto.
+
+Para la integración continua he usado Travis CI junto con el correspondiente [.travis.yml](https://github.com/GinesNC/LibSePeBOT-IV/blob/master/.travis.yml) en el cual se especifica el lenguaje y versión del proyecto, las dependencias necesarias para que funcione y como se ejecuta el test. Tras cada git push, Travis se pone en funcionamiento y lo testea. El resultado se puede ver, en mi caso, en la etiqueta que hay al principio.
