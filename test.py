@@ -23,7 +23,7 @@ class Test(unittest.TestCase):
         self.assertTrue(libsepe.modificarDatos(titulo, new_datos, uid), "Modificacion incorrecta")
 
     def test_D_UserActividad(self):
-        #igual que antes pero se busca un uid.
+        #igual que antes pero se busca un uid
         self.assertGreaterEqual(libsepe.userActividad(uid),1, "No tiene actividad")
 
 
