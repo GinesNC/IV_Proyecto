@@ -3,7 +3,7 @@ import os
 class HelloWorld(object):
     @cherrypy.expose
     def index(self):
-        return "Hello World!"
+        return {"status":'OK'}
 
 config = {
     'global': {
