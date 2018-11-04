@@ -3,8 +3,8 @@ import os
 class HelloWorld(object):
     @cherrypy.expose
     @cherrypy.tools.json_out()
-    def index(self):
-        return {"status":'OK'}
+    def index(self,valor_ejemplo="No se pasa nada"):
+        return {"status":'OK', "valor_ejemplo" : valor_ejemplo}
 
 config = {
     'global': {
