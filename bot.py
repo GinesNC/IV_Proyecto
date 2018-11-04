@@ -11,7 +11,7 @@ import logging
 API_TOKEN = '695037925:AAH8_aXMnGIZwva7EDBntqYleQHQ7kKIw9g'
 
 
-WEBHOOK_HOST = '0.0.0.0' #aqui hay que poner ip publica.
+WEBHOOK_HOST = 'https://blooming-inlet-13424.herokuapp.com/' #aqui hay que poner ip publica.
 WEBHOOK_PORT = 8443  # 443, 80, 88 or 8443 (port need to be 'open')
 WEBHOOK_LISTEN = '0.0.0.0'  # In some VPS you may need to put here the IP addr
 
