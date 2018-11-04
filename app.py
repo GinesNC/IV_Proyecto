@@ -14,4 +14,4 @@ config = {
         'server.socket_port': int(os.environ.get('PORT', 5000)),
     }
     }
-cherrypy.quickstart(HelloWorld(),'/',config=config)
+cherrypy.quickstart(WebLSP(),'/',config=config)
