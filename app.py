@@ -2,6 +2,7 @@ import cherrypy
 import os
 class HelloWorld(object):
     @cherrypy.expose
+    @cherrypy.tools.json_out()
     def index(self):
         return {"status":'OK'}
 
