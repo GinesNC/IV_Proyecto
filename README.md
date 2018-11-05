@@ -42,7 +42,8 @@ Para la integración continua he usado Travis CI junto con el correspondiente [.
 ___________________________________
 
 ## Despliegue PaaS
-[![Heroku Deploy](https://www.herokucdn.com/deploy/button.svg)](https://libsepebot.herokuapp.com)
 En este momento se puede ver que la aplicación funciona en Heroku y muestra un json con información de que funciona y un valor. El valor se puede cambiar como en el ejemplo *"/?valor=Nuevo+valor"*
+
+Despliegue: https://libsepebot.herokuapp.com
 
 El como desplegar en Heroku se puede ver en la [documentación](doc/despliegue_Heroku.md).
