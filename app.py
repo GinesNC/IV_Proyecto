@@ -1,6 +1,6 @@
 import cherrypy
 import os
-
+#Clase principal para que se vea que funciona.
 class WebLSP(object):
     @cherrypy.expose
     @cherrypy.tools.json_out()
