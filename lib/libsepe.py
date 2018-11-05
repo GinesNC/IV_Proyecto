@@ -3,7 +3,7 @@ class libsepe:
         super().__init__()
     ### La coleccionira de la forma::
     ##  {uid: [<contenido>], uid2: [<contenido>]}
-    # En contenido ira lo que el usuario a visto.
+    # En contenido ira lo que el usuario a visto
     global coleccion
     coleccion={}
     def crear_dato(titulo, año, punt,tipo):
