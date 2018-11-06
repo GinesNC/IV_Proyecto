@@ -4,7 +4,7 @@ import os
 class WebLSP(object):
     @cherrypy.expose
     @cherrypy.tools.json_out()
-    def index(self,valor="No se pasa valor"):
+    def status(self,valor="No se pasa valor"):
         return {"status":'OK', "valor" : valor}
 
 config = {
