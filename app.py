@@ -4,14 +4,8 @@ import os
 class WebLSP(object):
 
     @cherrypy.expose
-    def index(self):
-        return """
-        <a href='/status'> Estado </a>
-         """, {"status":'OK'}
-
-    @cherrypy.expose
     @cherrypy.tools.json_out()
-    def status(self,valor="No se pasa valor"):
+    def index(self,valor="No se pasa valor"):
         return {"status":'OK', "valor" : valor}
 
 config = {
