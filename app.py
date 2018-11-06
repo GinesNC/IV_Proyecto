@@ -2,6 +2,13 @@ import cherrypy
 import os
 #Clase principal para que se vea que funciona.
 class WebLSP(object):
+
+    @cherrypy.expose
+    def index(self):
+        return """
+        <a href='/status'> Estado </a>
+         """
+
     @cherrypy.expose
     @cherrypy.tools.json_out()
     def status(self,valor="No se pasa valor"):
