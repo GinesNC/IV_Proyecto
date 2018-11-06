@@ -7,7 +7,7 @@ class WebLSP(object):
     def index(self):
         return """
         <a href='/status'> Estado </a>
-         """
+         """, {"status":'OK'}
 
     @cherrypy.expose
     @cherrypy.tools.json_out()
