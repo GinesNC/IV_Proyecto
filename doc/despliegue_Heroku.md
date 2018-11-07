@@ -15,7 +15,7 @@
 
     donde _nombre_ es un nombre cualquiera para la aplicación. Si no se indica se crea uno al azar que luego se pordrá modificar.
 
-- Crear los ficheros: **runtime.txt** para especificar la versión de Python, **requirements.txt** para indicar las dependencias necesarias para que se ejecute la app y **Procfile** donde se dice que tiene que ejecutar la app.
+- Crear los ficheros: **runtime.txt** para especificar la versión de Python, **requirements.txt** para indicar las dependencias necesarias para que se ejecute la app y **Procfile** donde se dice que tipo de proceso y el comando que tiene que ejecutar. En mi caso he puesto _web: python3 app.py_ para mostrar en la web la app.
 
 - Hacer _git push heroku master_ para publicarlo.
 
