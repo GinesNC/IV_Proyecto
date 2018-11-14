@@ -8,6 +8,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 ENV PORT 443
-CMD [ "python", "./app.py" ]
+CMD [ "python", "./index.py" ]
 
 EXPOSE 443

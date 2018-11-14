@@ -2,6 +2,6 @@
     "version": 2,
     "name": "libsepebot",
     "builds": [
-        { "src": "app.py", "use": "@now/python" }
+        { "src": "index.py", "use": "@now/python" }
     ]
 }
