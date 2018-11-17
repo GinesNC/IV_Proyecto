@@ -8,6 +8,10 @@ class WebLSP(object):
     def index(self,valor="No se pasa valor"):
         return {"status":'OK', "valor" : valor}
 
+    @cherrypy.expose
+    def pag1(self):
+        return "ruta pag1."
+
 config = {
     'global': {
         'server.socket_host': '0.0.0.0',
