@@ -1,5 +1,6 @@
 import cherrypy
 import os
+from lib.libsepe import libsepe
 #Clase principal para que se vea que funciona.
 class WebLSP(object):
 
@@ -9,8 +10,33 @@ class WebLSP(object):
         return {"status":'OK', "valor" : valor}
 
     @cherrypy.expose
-    def pag1(self):
-        return "ruta pag1."
+    def insertardatos(self):
+        return """<html>
+          <head></head>
+          <body>
+            <form method="get" action="datos">
+              Titulo: <input type="text" name="titulo" />
+              Año: <input type="text" name="year" />
+              Puntuacion: <input type="text" name="mi_puntuacion" />
+              Tipo: <input type="text" name="tipo" />
+              <button type="submit">Enviar</button>
+            </form>
+          </body>
+        </html>"""
+
+    global dat
+    dat=""
+    @cherrypy.expose
+    def datos(self, titulo="", year=0, mi_puntuacion=0, tipo="" ):
+        global dat
+        dat=libsepe.crear_dato(titulo,year,mi_puntuacion,tipo)
+        return "los datos introducidos han sido\n Titulo: " + titulo + "\n año: "+year + "\nPuntuacion: "+ mi_puntuacion + "\ntipo: " + tipo +"""<br> el json creado aqui: <a href='/json'> json</a> """
+
+
+    @cherrypy.expose
+    @cherrypy.tools.json_out()
+    def json(self):
+        return dat
 
 config = {
     'global': {
