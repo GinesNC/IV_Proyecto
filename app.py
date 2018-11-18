@@ -5,20 +5,21 @@ from lib.libsepe import libsepe
 class WebLSP(object):
 
     @cherrypy.expose
-    def index(self):
+    def index(self,valor="No se pasa valor"):
         return """<html>
           <head></head>
           <body>
             Página principal <br><br>
             <a href='insertardatos'> Insertar Datos </a> <br><br>
             <a href='status'> Status </a><br><br>
+            Valor = """ + valor +"""
           </body>
         </html>"""
 
     @cherrypy.expose
     @cherrypy.tools.json_out()
-    def status(self,valor="No se pasa valor"):
-        status={"status":'OK', "valor" : valor}
+    def status(self):
+        status={"status":'OK'}
         return status
 
     @cherrypy.expose
