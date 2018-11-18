@@ -22,7 +22,7 @@ La parte visual o front-end, será ~~un bot de Telegram~~ una página web simple
 - Para los test usaré el módulo __unittest__
 - Para la integración continua usaré [Travis CI](https://travis-ci.org/).
 - Como PaaS he usado [Heroku](https://www.heroku.com/)
-- Como contenedor [Docker](https://www.docker.com/)
+
 
 He elegido CherryPy como framework porque que es estable, está creciendo, tiene 10 años y actualmente tiene mucha actividad. Al ser orientado objetos, permite hacer un código más limpio y un desarrollo más rápido. A parte tiene buen rendimiento y permite trabajar en la versión 2 y 3 de Python.
 
