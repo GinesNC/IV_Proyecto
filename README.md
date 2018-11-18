@@ -22,6 +22,7 @@ La parte visual o front-end, será ~~un bot de Telegram~~ una página web simple
 - Para los test usaré el módulo __unittest__
 - Para la integración continua usaré [Travis CI](https://travis-ci.org/).
 - Como PaaS he usado [Heroku](https://www.heroku.com/)
+- Como contenedor [Docker](https://www.docker.com/)
 
 He elegido CherryPy como framework porque que es estable, está creciendo, tiene 10 años y actualmente tiene mucha actividad. Al ser orientado objetos, permite hacer un código más limpio y un desarrollo más rápido. A parte tiene buen rendimiento y permite trabajar en la versión 2 y 3 de Python.
 
@@ -46,4 +47,12 @@ En este momento se puede ver que la aplicación funciona en Heroku y muestra un 
 
 Despliegue: https://libsepebot.herokuapp.com
 
-El como desplegar en Heroku se puede ver en la [documentación](doc/despliegue_Heroku.md).
+El como desplegar con Heroku se puede ver en la [documentación](doc/despliegue_Heroku.md).
+
+___________________________________
+
+## Docker y Heroku
+
+La aplicación se encuentra en DockerHub siendo el enlace a ese contenedor: [libsepebot-iv](https://hub.docker.com/r/ginesnc/libsepebot-iv/)
+
+El contenedor esta [desplegado en Heroku](https://libsepebot.herokuapp.com)
