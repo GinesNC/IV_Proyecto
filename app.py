@@ -5,9 +5,21 @@ from lib.libsepe import libsepe
 class WebLSP(object):
 
     @cherrypy.expose
+    def index(self):
+        return """<html>
+          <head></head>
+          <body>
+            Página principal <br><br>
+            <a href='insertardatos'> Insertar Datos </a> <br><br>
+            <a href='status'> Status </a><br><br>
+          </body>
+        </html>"""
+
+    @cherrypy.expose
     @cherrypy.tools.json_out()
-    def index(self,valor="No se pasa valor"):
-        return {"status":'OK', "valor" : valor}
+    def status(self,valor="No se pasa valor"):
+        status={"status":'OK', "valor" : valor}
+        return status
 
     @cherrypy.expose
     def insertardatos(self):
@@ -30,7 +42,7 @@ class WebLSP(object):
     def datos(self, titulo="", year=0, mi_puntuacion=0, tipo="" ):
         global dat
         dat=libsepe.crear_dato(titulo,year,mi_puntuacion,tipo)
-        return "los datos introducidos han sido\n Titulo: " + titulo + "\n año: "+year + "\nPuntuacion: "+ mi_puntuacion + "\ntipo: " + tipo +"""<br> el json creado aqui: <a href='/json'> json</a> """
+        return "los datos introducidos han sido\n Titulo: " + titulo + "\n año: "+year + "\nPuntuacion: "+ mi_puntuacion + "\ntipo: " + tipo + """<br> el json creado aqui: <a href='/json'> json</a> """
 
 
     @cherrypy.expose
