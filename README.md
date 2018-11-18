@@ -53,6 +53,6 @@ ___________________________________
 
 ## Docker y Heroku
 
-La aplicación se encuentra en DockerHub siendo el enlace a ese contenedor: [libsepebot-iv](https://hub.docker.com/r/ginesnc/libsepebot-iv/)
+La aplicación se encuentra en [DockerHub](https://hub.docker.com/r/ginesnc/libsepebot-iv/).
 
-El contenedor esta [desplegado en Heroku](https://libsepebot.herokuapp.com)
+El contenedor [desplegado en Heroku](https://libsepebot.herokuapp.com)
