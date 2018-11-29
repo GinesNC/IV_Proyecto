@@ -34,7 +34,7 @@ ___________________________________
 
 ## Integración continua y test
 
-La clase que se testea es a la que yo he llamado [_DbGestion_](https://github.com/GinesNC/LibSePeBOT-IV/blob/master/lib/libsepe.py). Actualmente hay unas funciones básicas. El encargado de testear dichas funciones es la clase [_Test_](https://github.com/GinesNC/LibSePeBOT-IV/blob/master/test.py). Algunas funciones son que se inserta correctamente un dato, se modifica o se borra.
+La clase que se testea es a la que yo he llamado [_DbGestion_](https://github.com/GinesNC/LibSePeBOT-IV/blob/master/lib/DbGestion.py). Actualmente hay unas funciones básicas. El encargado de testear dichas funciones es la clase [_Test_](https://github.com/GinesNC/LibSePeBOT-IV/blob/master/test.py). Algunas funciones son que se inserta correctamente un dato, se modifica o se borra.
 
 Para que Travis CI funcione hay que añadir el correspondiente [.travis.yml](https://github.com/GinesNC/LibSePeBOT-IV/blob/master/.travis.yml). La estructura de este fichero es como lo que sigue:
 
@@ -52,7 +52,7 @@ Para que Travis CI funcione hay que añadir el correspondiente [.travis.yml](htt
 ___________________________________
 
 ## Despliegue PaaS
-En este momento se puede ver que la aplicación funciona en Heroku y muestra un json con un estado, junto con las rutas y los parametros que se le pueden pasar.
+En este momento se puede ver que la aplicación funciona en Heroku y muestra un json con un estado, junto con las rutas y los parámetros que se le pueden pasar.
 
 Despliegue: https://libsepebot.herokuapp.com
 
