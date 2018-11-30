@@ -1,5 +1,5 @@
 import unittest
-from lib.libsepe import libsepe
+from lib.dbgestion import DbGestion
 import random
 
 class Test(unittest.TestCase):
@@ -10,9 +10,9 @@ class Test(unittest.TestCase):
 
     def test_B_Insertar(self):
 
-        data = libsepe.crear_dato('test prueba', 2018, 10,tipo)
+        data = DbGestion.crear_dato('test prueba', 2018, 10,tipo)
 
-        self.assertTrue(libsepe.insertarDatos(data,uid), "Inserccion incorrecta")
+        self.assertTrue(DbGestion.insertarDatos(data,uid), "Inserccion incorrecta")
 
 
     def test_C_Modificar(self):
@@ -20,11 +20,11 @@ class Test(unittest.TestCase):
         titulo = "test prueba"
         new_datos = {'titulo': 'mod test prueba', 'año': 2017, 'puntuacion': 8, 'tipo':tipo1}
 
-        self.assertTrue(libsepe.modificarDatos(titulo, new_datos, uid), "Modificacion incorrecta")
+        self.assertTrue(DbGestion.modificarDatos(titulo, new_datos, uid), "Modificacion incorrecta")
 
     def test_D_UserActividad(self):
         #igual que antes pero se busca un uid
-        self.assertGreaterEqual(libsepe.userActividad(uid),1, "No tiene actividad")
+        self.assertGreaterEqual(DbGestion.userActividad(uid),1, "No tiene actividad")
 
 
     def test_E_Borrar(self):
@@ -32,7 +32,7 @@ class Test(unittest.TestCase):
 
         titulo_borrar = "mod test prueba"
 
-        self.assertTrue(libsepe.eliminarDatos(titulo_borrar, uid), "Borrado incorrecto")
+        self.assertTrue(DbGestion.eliminarDatos(titulo_borrar, uid), "Borrado incorrecto")
 
 
 

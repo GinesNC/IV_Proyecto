@@ -1,55 +1,30 @@
 import cherrypy
 import os
-from lib.libsepe import libsepe
+from lib.dbgestion import DbGestion
+import requests
+
 #Clase principal para que se vea que funciona.
 class WebLSP(object):
 
     @cherrypy.expose
-    def index(self,valor="No se pasa valor"):
-        return """<html>
-          <head></head>
-          <body>
-            Página principal <br><br>
-            <a href='insertardatos'> Insertar Datos </a> <br><br>
-            <a href='status'> Status </a><br><br>
-            Valor = """ + valor +"""
-          </body>
-        </html>"""
+    @cherrypy.tools.json_out()
+    def index(self):
+        valorejem=self.insertardatos()
+        valordat= self.datos("Un titulo", 2018, 0, "libro")
+        return {"status":'OK', "rutas":{
+            "insertardatos":{"nombre": "/insertardatos","json_ruta": valorejem},
+            "datos":{"nombre":"/datos?titulo=Un+titulo&year=2018&mi_puntuacion=0&tipo=libro", "json_ruta": valordat}
+            }}
 
     @cherrypy.expose
     @cherrypy.tools.json_out()
-    def status(self):
-        status={"status":'OK'}
-        return status
+    def insertardatos(self, valor="No se pasa valor"):
+        return {"status_ruta":'OK',"valor":valor}
 
     @cherrypy.expose
-    def insertardatos(self):
-        return """<html>
-          <head></head>
-          <body>
-            <form method="get" action="datos">
-              Titulo: <input type="text" name="titulo" />
-              Año: <input type="text" name="year" />
-              Puntuacion: <input type="text" name="mi_puntuacion" />
-              Tipo: <input type="text" name="tipo" />
-              <button type="submit">Enviar</button>
-            </form>
-          </body>
-        </html>"""
-
-    global dat
-    dat=""
-    @cherrypy.expose
+    @cherrypy.tools.json_out()
     def datos(self, titulo="", year=0, mi_puntuacion=0, tipo="" ):
-        global dat
-        dat=libsepe.crear_dato(titulo,year,mi_puntuacion,tipo)
-        return "los datos introducidos han sido\n Titulo: " + titulo + "\n año: "+year + "\nPuntuacion: "+ mi_puntuacion + "\ntipo: " + tipo + """<br> el json creado aqui: <a href='/json'> json</a> """
-
-
-    @cherrypy.expose
-    @cherrypy.tools.json_out()
-    def json(self):
-        return dat
+        return {"status_ruta":'OK', "dato":{"titulo":titulo, "año": year, "puntuacion": mi_puntuacion, "tipo":tipo} }
 
 config = {
     'global': {
