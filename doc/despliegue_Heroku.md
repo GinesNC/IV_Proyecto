@@ -1,24 +1,17 @@
 # Despliegue en Heroku
 
-### Pasos previos
-- Clonar el repositorio que se quiere poner en Heroku.
+### Pasos
+- Clonar el repositorio que se quiere desplegar en Heroku.
       git clone https://github.com/GinesNC/LibSePeBOT-IV
 
-- Tener las herramientas de Heroku instaladas en el sistema y loguearse. En mi caso me ha funcionado de esta forma:
-      curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+- Crear la aplicación Heroku en el directorio donde se clonó el repositorio que se quiere desplegar.
 
-### Siguientes pasos
+- Crear los ficheros: **runtime.txt** para especificar la versión de Python, **requirements.txt** para indicar las dependencias necesarias para que se ejecute la app y el **Procfile**. Este último se usa para indicar el tipo de proceso y el comando que debe ejecutar al iniciarse. En este caso, el contenido del **Procfile** es: `web: python3 app.py`, donde indico que es un proceso web para poder recibir tráfico HTTP y como comando que se ejecute el script python, llamado _app.py_, que arranca esta aplicación hecha en CherryPy.
 
-- Ahora es el momento de crear la app. Desde el directorio donde se clonó el repositorio ejecutar:
 
-      heroku apps:create --region eu <nombre>
+### Despliegue automático al hacer git push
 
-    donde _nombre_ es un nombre cualquiera para la aplicación. Si no se indica se crea uno al azar que luego se pordrá modificar.
+Para conseguir esto hay que configurarlo en la pestaña _Deploy_ de la aplicación en Heroku.
+![Despliegue](capturas/despliegue_automatico.png)
 
-- Crear los ficheros: **runtime.txt** para especificar la versión de Python, **requirements.txt** para indicar las dependencias necesarias para que se ejecute la app y **Procfile** donde se dice que tipo de proceso y el comando que tiene que ejecutar. En mi caso he puesto _web: python3 app.py_ para mostrar en la web la app.
-
-- Hacer _git push heroku master_ para publicarlo.
-
-- Por último ejecutar _heroku open_ para ver el resultado.
-
-En mi caso he añadido el despliegue automático, en donde cuando hago push se pasa el test y se publica en Heroku. Esta opción se puede habilitar en la pestaña _Deploy_ de Heroku.
+Primero hay que asociar la aplicación al repositorio correspondiente de GitHub. Esto se consigue pulsando el botón que en la captura se indica con un número 1. Una vez pulsado pide que se introduzca el repositorio que se conectará con la aplicación y aparece una opción más que está deshabilitada. Esta es la que permite el despliegue automático tras hacer git push y pasar los test del CI en el que se haya hecho, esto último si se ha marcado el check.
