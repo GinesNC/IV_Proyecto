@@ -29,7 +29,7 @@ class WebLSP(object):
     @cherrypy.expose
     @cherrypy.tools.json_out()
     def aa(self):
-        return {"status_ruta":'OK',"valor":aa}
+        return {"status_ruta":'OK',"valor":"aa"}
 config = {
     'global': {
         'server.socket_host': '0.0.0.0',
