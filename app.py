@@ -26,6 +26,10 @@ class WebLSP(object):
     def datos(self, titulo="", year=0, mi_puntuacion=0, tipo="" ):
         return {"status_ruta":'OK', "dato":{"titulo":titulo, "año": year, "puntuacion": mi_puntuacion, "tipo":tipo} }
 
+    @cherrypy.expose
+    @cherrypy.tools.json_out()
+    def aa(self):
+        return {"status_ruta":'OK',"valor":aa}
 config = {
     'global': {
         'server.socket_host': '0.0.0.0',
