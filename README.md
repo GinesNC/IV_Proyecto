@@ -66,6 +66,4 @@ La aplicación se encuentra en [DockerHub](https://hub.docker.com/r/ginesnc/libs
 
 El contenedor [desplegado en Heroku](https://libsepebot-docker.herokuapp.com)
 
-[En este archivo se explica como desplegar en Heroku desde Docker.](doc/Docker.md)
-
-Para que no haya problemas, con el despliegue PaaS y con docker, este segundo despliegue se encuentra en la [rama bot](linkbot).
+[En este archivo](doc/Docker.md) se explica como se hace el despliegue automático, así como la publicación del contenedor en Heroku.
