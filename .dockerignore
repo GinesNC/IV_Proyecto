@@ -1,5 +1,4 @@
 *.yml
 test.py
 LICENSE
-.git
-.gitignore
+.git*
