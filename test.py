@@ -1,7 +1,7 @@
 import unittest
 from lib.dbgestion import DbGestion
 import random
-import requests
+from requests import .
 
 class Test(unittest.TestCase):
     global uid
