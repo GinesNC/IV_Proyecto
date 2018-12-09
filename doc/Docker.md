@@ -45,4 +45,4 @@ Para este caso hay que crear un nuevo fichero, _heroku.yml_
 
 En este fichero se pueden poner varias secciones. En mi caso he puesto en _build_ que se instale docker y donde se encuentra el Dockerfile que genera la imagen. Si no se pone la sección _run_ se usa el CMD del Dockerfile.
 
-Después de crear los ficheros hay que poner la pila de la aplicación en el contenedor: `heroku stack:set container` y hacer push de la aplicación a Heroku. Una vez hecho esto usará el _heroku.yml_ y no el _Procfile_. Al haber configurado el despliegue automático en Docker también se despliegua automáticamente en Heroku en los próximos git push.
+Después de crear los ficheros hay que poner la pila de la aplicación en el contenedor: `heroku stack:set container` y hacer push de la aplicación a Heroku. Una vez hecho esto usará el _heroku.yml_ y no el _Procfile_. Al haber configurado el despliegue automático en Docker también se despliega automáticamente en Heroku en los próximos git push.
