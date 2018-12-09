@@ -13,7 +13,7 @@ class WebLSP(object):
         valordat= self.datos("Un titulo", "2018", "0", "libro")
         return {"status":'OK', "rutas":{
             "insertardatos":{"nombre": "/insertardatos","json_ruta": valorejem},
-            "datos":{"nombre":"/datos?titulo=Un+titulo&year=2018&mi_puntuacion=0&tipo=libro", "json_ruta": valordat}
+            "datos":{"nombre":"/datos?titulo=Un+titulo&year=2018&mi_puntuacion=0&tipo=libro", "json_ruta": valordat},
             "status": {"status":"OK"}
             }
             }
