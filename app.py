@@ -1,37 +1,32 @@
 import cherrypy
 import os
 from lib.dbgestion import DbGestion
+import lib.rutas as rutas
 import requests
 
-#Clase principal para que se vea que funciona.
+import json
+
 class WebLSP(object):
 
     @cherrypy.expose
     @cherrypy.tools.json_out()
     def index(self):
-        valorejem=self.insertardatos()
-        valordat= self.datos("Un titulo", "2018", "0", "libro")
-        return {"status":'OK', "rutas":{
-            "insertardatos":{"nombre": "/insertardatos","json_ruta": valorejem},
-            "datos":{"nombre":"/datos?titulo=Un+titulo&year=2018&mi_puntuacion=0&tipo=libro", "json_ruta": valordat},
-            "status": {"status":"OK"}
-            }
-            }
+        return json.loads(rutas.index("No se pasa valor", "Un titulo", "2018", "0", "libro"))
 
     @cherrypy.expose
     @cherrypy.tools.json_out()
     def insertardatos(self, valor="No se pasa valor"):
-        return {"status":'OK',"valor":valor}
+        return json.loads(rutas.insertardatos(valor))
 
     @cherrypy.expose
     @cherrypy.tools.json_out()
     def datos(self, titulo="", year=0, mi_puntuacion=0, tipo="" ):
-        return {"status":'OK', "dato":{"titulo":titulo, "año": year, "puntuacion": mi_puntuacion, "tipo":tipo} }
+        return json.loads(rutas.datos(titulo, year, mi_puntuacion, tipo))
 
     @cherrypy.expose
     @cherrypy.tools.json_out()
     def status(self):
-        return {"status":'OK'}
+        return json.loads(rutas.status())
 
 
 config = {
