@@ -1,9 +1,7 @@
 # Despliegue en Docker
 
-
-
-### Despliegue automatico
-Para poder hacer el despliegue automático en Docker Hub cuando se hace un push hay que crear un repositorio que lo permita. Para eso se hacer clic en _Create_ y en  el menus desplegable se elige la segunda opción: _Create Automated Build_.
+### Despliegue automático
+Para poder hacer el despliegue automático en Docker Hub cuando se hace un push hay que crear un repositorio que lo permita. Para eso se hacer clic en _Create_ y en el menú desplegable se elige la segunda opción: _Create Automated Build_.
 
 ![img](capturas/automated-build.png)
 
@@ -24,18 +22,27 @@ El Dockerfile es un fichero en el cual se indica como se crea el contenedor y qu
 
 
 
-
-
 En este caso se crea un contenedor con la imagen python oficial. He elegido esta porque se hace mas rápido el despliegue, puesto que no se tiene que poner en marcha un sistema operativo e instalar posteriormente el lenguaje y las dependencias necesarias.
 
-### Despliegue contededor y herokuapp
+Para que no se copien archivos innecesarios hay que crear el fichero _.dockerignore_ e indicarle aquellos archivos que no se tienen que copiar en el contenedor como los test o el archivo de la licencia . En mi caso:
 
-para llevar a cabo esta tarea hayq eu crear un nuevo fichero heroku.yml, en el cual se indica que se tiene que uasr, y yo he pueste que se use docker y el fichero docker file, asi se consigue se se despliegue desde docker en heroku al hacer push del proyecto local.
+    *.yml
+    test.py
+    LICENSE
+    Procfile
 
-El contenido de mi fichero es:
+<!--* -->
+
+
+### Despliegue contenedor en Heroku
+
+Para este caso hay que crear un nuevo fichero, _heroku.yml_
+
 
     build:
       docker:
         web: Dockerfile
 
-Donde se indica la imagen docker a compilar por el proceso web. En mi caso se compila el Dockerfile. Si no se pone la seccion run estoy indicando que se use el CMD del Dockerfile.
+En este fichero se pueden poner varias secciones. En mi caso he puesto en _build_ que se instale docker y donde se encuentra el Dockerfile que genera la imagen. Si no se pone la sección _run_ se usa el CMD del Dockerfile.
+
+Después de crear los ficheros hay que poner la pila de la aplicación en el contenedor: `heroku stack:set container` y hacer push de la aplicación a Heroku. Una vez hecho esto usará el heroku.yml y no el Procfile.
