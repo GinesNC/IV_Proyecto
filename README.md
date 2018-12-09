@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/GinesNC/LibSePeBOT-IV.svg?branch=master)](https://travis-ci.org/GinesNC/LibSePeBOT-IV)
 
-[![Heroku Deploy](https://www.herokucdn.com/deploy/button.svg)](https://libsepebot.herokuapp.com)
+
 # LibSePeBOT
 ## Introducción
 
@@ -54,7 +54,7 @@ ___________________________________
 ## Despliegue PaaS
 En este momento se puede ver que la aplicación funciona en Heroku y muestra un json con un estado, junto con las rutas y los parámetros que se le pueden pasar.
 
-Despliegue: https://libsepebot.herokuapp.com
+Despliegue: https://libsepebot.herokuapp.com [![Heroku Deploy](https://www.herokucdn.com/deploy/button.svg)](https://libsepebot.herokuapp.com)
 
 El como desplegar con Heroku se puede ver en la [documentación](doc/despliegue_Heroku.md).
 
@@ -64,6 +64,6 @@ ___________________________________
 
 La aplicación se encuentra en [DockerHub](https://hub.docker.com/r/ginesnc/libsepebot-iv/).
 
-El contenedor [desplegado en Heroku](https://libsepebot-docker.herokuapp.com)
+El contenedor [desplegado en Heroku](https://libsepebot-docker.herokuapp.com) [![Heroku Deploy](https://www.herokucdn.com/deploy/button.svg)](https://libsepebot-docker.herokuapp.com)
 
 [En este archivo](doc/Docker.md) se explica como se hace el despliegue automático, así como la publicación del contenedor en Heroku.
