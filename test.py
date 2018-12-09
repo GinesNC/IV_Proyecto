@@ -1,12 +1,16 @@
 import unittest
 from lib.dbgestion import DbGestion
 import random
+import requests
 
 class Test(unittest.TestCase):
     global uid
     global tipo
     uid = random.randint(10000, 100000)
     tipo = random.choice(["libro", "pelicula", "serie"])
+
+    global url
+    url= "https://libsepebot-docker.herokuapp.com/"
 
     def test_B_Insertar(self):
 
@@ -34,6 +38,18 @@ class Test(unittest.TestCase):
 
         self.assertTrue(DbGestion.eliminarDatos(titulo_borrar, uid), "Borrado incorrecto")
 
+
+    def test_Index(self):
+        self.assertGreaterEqual(requests.get(url).json()['status'],"OK", "No OK.")
+
+    def test_F_status(self):
+        self.assertGreaterEqual(requests.get(url+"/staus").json()['status'],"OK", "No OK.")
+
+    def test_G_datos(self):
+        self.assertGreaterEqual(requests.get(url+"/datos").json()['status'],"OK", "No OK.")
+
+    def test_H_insertdatos(self):
+        self.assertGreaterEqual(requests.get(url+"/insertardatos").json()['status'],"OK", "No OK.")
 
 
 
