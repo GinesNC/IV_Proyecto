@@ -14,22 +14,26 @@ class WebLSP(object):
         return {"status":'OK', "rutas":{
             "insertardatos":{"nombre": "/insertardatos","json_ruta": valorejem},
             "datos":{"nombre":"/datos?titulo=Un+titulo&year=2018&mi_puntuacion=0&tipo=libro", "json_ruta": valordat}
-            }}
+            "status": {"status":"OK"}
+            }
+            }
 
     @cherrypy.expose
     @cherrypy.tools.json_out()
     def insertardatos(self, valor="No se pasa valor"):
-        return {"status_ruta":'OK',"valor":valor}
+        return {"status":'OK',"valor":valor}
 
     @cherrypy.expose
     @cherrypy.tools.json_out()
     def datos(self, titulo="", year=0, mi_puntuacion=0, tipo="" ):
-        return {"status_ruta":'OK', "dato":{"titulo":titulo, "año": year, "puntuacion": mi_puntuacion, "tipo":tipo} }
+        return {"status":'OK', "dato":{"titulo":titulo, "año": year, "puntuacion": mi_puntuacion, "tipo":tipo} }
 
     @cherrypy.expose
     @cherrypy.tools.json_out()
-    def aa(self):
-        return {"status_ruta":'OK',"valor":"aa"}
+    def status(self):
+        return {"status":'OK'}
+
+
 config = {
     'global': {
         'server.socket_host': '0.0.0.0',
