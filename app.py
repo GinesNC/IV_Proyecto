@@ -32,7 +32,7 @@ class WebLSP(object):
 config = {
     'global': {
         'server.socket_host': '0.0.0.0',
-        'server.socket_port': int(os.environ.get('PORT', 5000)),
+        'server.socket_port': int(os.environ.get('PORT', 8443)),
     }
     }
 cherrypy.quickstart(WebLSP(),'/',config=config)
