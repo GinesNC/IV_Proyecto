@@ -67,3 +67,12 @@ La aplicación se encuentra en [DockerHub](https://hub.docker.com/r/ginesnc/libs
 El contenedor [desplegado en Heroku](https://libsepebot-docker.herokuapp.com) [![Heroku Deploy](https://www.herokucdn.com/deploy/button.svg)](https://libsepebot-docker.herokuapp.com)
 
 [En este archivo](doc/Docker.md) se explica como se hace el despliegue automático, así como la publicación del contenedor en Heroku.
+
+
+___________________________________
+
+## Despliegue en Azure desde 0
+
+Despliegue: 40.112.90.212:8443
+
+El como se ha llevado a cabo esta tarea se puede leer [aquí](doc/despliegue_azure_de0.md)
