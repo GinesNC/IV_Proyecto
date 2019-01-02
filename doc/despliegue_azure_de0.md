@@ -113,7 +113,7 @@ Para la ejecución he usado Fabric y para el *fabfile.py* me he ayudado de la [d
     def runApp():
 
          # Iniciamos el servicio web
-         run('python3 /home/vagrant/LibSePeBOT-IV/app.py')
+         run('sudo python3 /home/vagrant/LibSePeBOT-IV/app.py')
 
     def updateApp():
 

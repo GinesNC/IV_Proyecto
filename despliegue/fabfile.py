@@ -4,7 +4,7 @@ from fabric.api import run
 def runApp():
 
      # Iniciamos el servicio web
-     run('python3 /home/vagrant/LibSePeBOT-IV/app.py')
+     run('sudo python3 /home/vagrant/LibSePeBOT-IV/app.py')
 
 def updateApp():
 
