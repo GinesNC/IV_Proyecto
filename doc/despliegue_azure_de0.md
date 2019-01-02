@@ -4,7 +4,7 @@ Las configuraciones necesarias para conseguir esto son:
 
 ## Configuración local
 
-En primer lugar para un despliegue desde cero hay que configurar varias cosas. Una de ellas es el entorno local, en el cual hay que instlar Vagrant y Azure CLI. Hacer login en Azure, establecer la suscripción con la que se va a trabajar y crear el directorio activo de azure (ADD).
+En primer lugar para un despliegue desde cero hay que configurar varias cosas. Una de ellas es el entorno local, en el cual hay que instalar Vagrant y Azure CLI. Hacer login en Azure, establecer la suscripción con la que se va a trabajar y crear el directorio activo de azure (ADD).
 
 Con `az login` se hace el login en Azure y muestra las suscripciones disponibles.
 Tras esto y aunque ya está establecida por defecto, pongo la que está activa:
@@ -21,7 +21,7 @@ Tras esta ejecución devuelve un *id* de la aplicación, un password y un *tenan
 
 ## Configuración del provisionamiento
 
-En el siguiente paso es crear el fichero para realizar el provisionamiento. En el cual se indicará todo lo que la máquina tiene que tener. Para ello uso Ansible y este *playbook.yml*:
+En el siguiente paso es crear el fichero para realizar el provisionamiento. En el cual se indicará todo lo que la máquina tiene que tener instalado. Para ello uso Ansible y este *playbook.yml*:
 
     - hosts: all
       remote_user: vagrant
@@ -97,11 +97,10 @@ Hay que configurar el _Vagrantfile_ el cual para hacerlo me he ayudado de este [
 
     end
 
-Parte de este archivo se da en el repositorio de Azure. Las variables son del entorno y las que antes he creado con la información que he obtenido antes. Para que no le diese un nombre al azar he establecido con la variable, `azure.vm_name` dicho nombre a la maquina, he elegido el tamaño a uno básico, ya que no requiere de muchos recursos este proyecto. Y por ultimo he establecido el servidor de _northeurope_ ya que he comparado precios y este era un poco más barato con respecto al de _westeurope_.
-
+Parte de este archivo se da en el repositorio de Azure. Las variables son del entorno y las que he creado con la información que he obtenido antes. Para que no le diese un nombre al azar he establecido el nombre con la variable `azure.vm_name`, he elegido el tamaño a uno básico, ya que no requiere de muchos recursos este proyecto. Y por último he establecido el servidor de _northeurope_ ya que he comparado precios y este era un poco más barato con respecto al de _westeurope_.
 Y por último para que se haga el provisionamiento con Ansible y el *playbook.yml* creado antes.
 
-Una vez hecho e instalado el pugling de Azure con `vagrant plugin install vagrant-azure` se puede levantar la máquina con `vagrant up --provider=azure`. Esto creará la máquina y realizará el provisionamiento especificado.
+Una vez hecho e instalado el pugling de Azure con `vagrant plugin install vagrant-azure`, se puede levantar la máquina con `vagrant up --provider=azure`. Esto creará la máquina y realizará el provisionamiento especificado.
 Si posteriormente se realizan cambios en el *playbook.yml* se pueden aplicar con `vagrant provision`.
 
 ## Ejecución automática
@@ -125,7 +124,7 @@ Para la ejecución he usado Fabric y para el *fabfile.py* me he ayudado de la [d
 
 Donde puedo poner en funcionamiento la aplicación con `runApp()` o se puede actualizar con `updateApp()`.
 
-Esto se puede con la herramienta de Fabric, que es `fab` y se ejecutaría de esta forma:
+Esto se puede hacer con la herramienta de Fabric, que es `fab` y se ejecutaría de esta forma:
 
       fab -H vagrant@40.112.90.212 updateApp   
 

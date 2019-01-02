@@ -73,6 +73,8 @@ ___________________________________
 
 ## Despliegue en Azure desde 0
 
-Despliegue: 40.112.90.212:8443
+Despliegue: 40.112.90.212
+
+En el puerto 8443
 
 El como se ha llevado a cabo esta tarea se puede leer [aquí](doc/despliegue_azure_de0.md)
