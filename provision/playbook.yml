@@ -7,20 +7,20 @@
     sudo: true
     apt:
       name: git
-      state: present
+      state: latest
 
   - name: Install Python 3
     sudo: true
     apt:
       name: python3
-      state: present
+      state: latest
       update_cache: yes
 
   - name: Instalar pip
     sudo: true
     apt:
       name: python3-pip
-      state: present
+      state: latest
       update_cache: yes
 
   - name: clonar repositorio libsepe
