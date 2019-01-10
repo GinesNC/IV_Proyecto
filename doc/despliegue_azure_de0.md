@@ -69,7 +69,7 @@ En el siguiente paso es crear el fichero para realizar el provisionamiento. En e
 
 Donde indico que se haga para todos los host y que el usuario *vagrant* será el encargado de ejecutar las tareas. Esas tareas están especificadas en la sección *task*, donde instalo _git, python3, pip3_, clono el repositorio e instalo todas las dependencias de mi aplicación que se encuentran en *requirements.txt*.
 
-Con `state: latest` se indica que el paquete a instalar tiene que estar en la ultima versión disponible, si ya se encuentra no hace nada.
+Con `state: latest` se indica que el paquete a instalar tiene que estar en la última versión disponible, si ya se encuentra no hace nada.
 
 En el caso de clonar el repositorio de GitHub, Ansible cuenta con el [modulo *git*](https://docs.ansible.com/ansible/latest/modules/git_module.html)  que facilita esta tarea.
 
@@ -110,11 +110,11 @@ Hay que configurar el _Vagrantfile_ el cual para hacerlo me he ayudado del repos
 
       end
 
-Para empezar `config.vm.box = 'azure-lsp'` es el nombre de la box que he añadido, como se añade lo explico después. Con `config.ssh.private_key_path` se establece la ruta donde se encuentra la clave para poder realizar la conexion mediante `vagrant ssh`. Las siguientes lineas son las claves obtenidas cuando se establece el ADD.
+Para empezar `config.vm.box = 'azure-lsp'` es el nombre de la box que he añadido, como se añade lo explico después. Con `config.ssh.private_key_path` se establece la ruta donde se encuentra la clave para poder realizar la conexión mediante `ssh`. Las siguientes lineas son las claves obtenidas cuando se establece el ADD.
 
-Las siguientes lineas son la configuracion de la máquina, como el nombre, que se establece con la variable `azure.vm_name`. He elegido el tamaño básico, ya que no requiere de muchos recursos el proyecto. También he añadido un usuario con su clave y por último he establecido el servidor de _northeurope_ ya que he comparado precios y este era un poco más barato con respecto al de _westeurope_.
+Las siguientes lineas son la configuración de la máquina, como el nombre, que se establece con la variable `azure.vm_name`. He elegido el tamaño básico, ya que el proyecto no requiere de muchos recursos. También he añadido un usuario con su clave y por último he establecido el servidor de _northeurope_ ya que he comparado precios y este era un poco más barato con respecto al de _westeurope_.
 
-Como no indico el SO de la máquina se instalara el linux por defecto, que es un _Ubuntu Server_ en la versión _16.04.5_
+Como no indico el SO de la máquina se instalará el linux por defecto, que es un _Ubuntu Server_ en la versión _16.04.5_
 
 Para que se haga el provisionamiento he usado Ansible y el *playbook.yml* descrito antes.
 
@@ -133,7 +133,7 @@ Si posteriormente se realizan cambios en en el *playbook.yml* se pueden aplicar 
 
 ## Ejecución automática
 
-Para la ejecución he usado Fabric y para el *fabfile.py* me he ayudado de la [documentación oficial](http://docs.fabfile.org/en/2.4/getting-started.html#run-commands-via-connections-and-run). Mi fichero a quedado así:
+Para la ejecución he usado Fabric y para el *fabfile.py* me he ayudado de la [documentación oficial](http://docs.fabfile.org/en/2.4/getting-started.html#run-commands-via-connections-and-run). Mi fichero ha quedado así:
 
     from fabric.api import run
 
@@ -150,7 +150,7 @@ Para la ejecución he usado Fabric y para el *fabfile.py* me he ayudado de la [d
         run("git clone https://github.com/GinesNC/LibSePeBOT-IV.git /home/vagrant/LibSePeBOT-IV")
 
 
-Donde puedo poner en funcionamiento la aplicación con `runApp()` o se puede actualizar con `updateApp()`.
+Donde se pone en funcionamiento la aplicación con `runApp()` o se puede actualizar con `updateApp()`.
 
 Esto se puede hacer con la herramienta de Fabric, que es `fab` y se ejecutaría de esta forma:
 
