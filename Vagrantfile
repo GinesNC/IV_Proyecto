@@ -1,11 +1,11 @@
 Vagrant.configure('2') do |config|
   config.vm.box = 'azure-lsp'
 
-  #con esto nos conectamos a la maquina con la clave ssh local y permite hacer vagrant ssh
+  #Para permitir la conexion ssh
   config.ssh.private_key_path = '~/.ssh/id_rsa'
   config.vm.provider :azure do |azure, override|
 
-    # variables para permitir la conexion y configuracion de la máquina.
+
     azure.tenant_id = "4fa7xxxx-xxxx-xxxx-xxxx-xxxxe8e1d1cd"
     azure.client_id = "21e9xxxx-xxxx-xxxx-xxxx-xxxx10c59656"
     azure.client_secret ="dcacxxxx-xxxx-xxxx-xxxx-xxxx23322cef"
