@@ -1,21 +1,22 @@
 Vagrant.configure('2') do |config|
-  config.vm.box = 'azure'
+  config.vm.box = 'azure-lsp'
 
-  #config.vm.network "forwarded_port", guest: 5000, host: 8443
-
-  # use local ssh key to connect to remote vagrant box
+  #con esto nos conectamos a la maquina con la clave ssh local y permite hacer vagrant ssh
   config.ssh.private_key_path = '~/.ssh/id_rsa'
   config.vm.provider :azure do |azure, override|
 
-    # each of the below values will default to use the env vars named as below if not specified explicitly
-    azure.tenant_id = ENV['AZURE_TENANT_ID']
-    azure.client_id = ENV['AZURE_CLIENT_ID']
-    azure.client_secret = ENV['AZURE_CLIENT_SECRET']
-    azure.subscription_id = ENV['AZURE_SUBSCRIPTION_ID']
+    # variables para permitir la conexion y configuracion de la máquina.
+    azure.tenant_id = "4fa7xxxx-xxxx-xxxx-xxxx-xxxxe8e1d1cd"
+    azure.client_id = "21e9xxxx-xxxx-xxxx-xxxx-xxxx10c59656"
+    azure.client_secret ="dcacxxxx-xxxx-xxxx-xxxx-xxxx23322cef"
+    azure.subscription_id = "45aexxxx-xxxx-xxxx-xxxx-xxxx8f9cf14f"
 
-    azure.vm_name = "libsepebot-iv"
+
+    azure.vm_name = "libsepebot"
     azure.vm_size = "Standard_B1s"
-    azure.location = "northeurope" #un poco mas economica que westeurope
+    azure.location = "northeurope"
+    azure.admin_username = "libsepe_admin"
+    azure.vm_password = 'ClavE'
 
   end
 
@@ -23,7 +24,7 @@ Vagrant.configure('2') do |config|
 
 
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "/provision/playbook.yml"
+    ansible.playbook = "playbook.yml"
   end
 
 end
